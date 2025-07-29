@@ -5,6 +5,7 @@ import { FaPlus,FaMinus,FaTimes } from 'react-icons/fa';
 import axios from "axios"
 import { loadRazorpayScript } from "../utils/loadRazorpay.js"; 
 
+
 const handlePayment = async (amount) =>{
     const isLoaded = await loadRazorpayScript();
     
@@ -17,8 +18,16 @@ const handlePayment = async (amount) =>{
        
       const {data} = await axios.post("http://localhost:8000/api/v1/payments/create-order",{amount});
 
+       const key = import.meta.env.VITE_RAZORPAY_KEY_ID;
+
+        if (!key) {
+        alert("❌ Razorpay key is missing. Check your .env file and restart the server.");
+         return;
+        }
+
+
       const options = {
-        key :"rzp_test_Ky55abKgccKNKC", //
+        key,
         amount : data.order.amount,
         currency : "INR",
         name:"Adidas Store",
@@ -32,7 +41,7 @@ const handlePayment = async (amount) =>{
          alert(`Payment ID: ${response.razorpay_payment_id}`);
          alert(`Order ID: ${response.razorpay_order_id}`);
          alert(`Signature: ${response.razorpay_signature}`);
-    // 🔐 Send to backend to verify authenticity (recommended)
+    
   },
     
   prefill:{
