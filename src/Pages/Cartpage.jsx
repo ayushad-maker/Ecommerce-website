@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaPlus,FaMinus,FaTimes } from 'react-icons/fa';
 import axios from "axios"
 import { loadRazorpayScript } from "../utils/loadRazorpay.js"; 
-
+import { toast } from 'react-toastify';
 
 const handlePayment = async (amount) =>{
     const isLoaded = await loadRazorpayScript();
@@ -21,7 +21,7 @@ const handlePayment = async (amount) =>{
        const key = import.meta.env.VITE_RAZORPAY_KEY_ID;
 
         if (!key) {
-        alert("❌ Razorpay key is missing. Check your .env file and restart the server.");
+        toast.error("Razorpay key is missing. Check your .env file and restart the server.");
          return;
         }
 
@@ -37,10 +37,29 @@ const handlePayment = async (amount) =>{
 
         order_id : data.order.id,
 
-         handler: function (response) {
-         alert(`Payment ID: ${response.razorpay_payment_id}`);
-         alert(`Order ID: ${response.razorpay_order_id}`);
-         alert(`Signature: ${response.razorpay_signature}`);
+         handler:async function (response) {
+         const{razorpay_order_id,razorpay_payment_id,razorpay_signature} = response;
+         
+         try {
+          const verifyResponse = await axios.post("http://localhost:8000/api/v1/payment/verify",{
+           razorpay_order_id,
+           razorpay_payment_id,
+           razorpay_signature,
+           name:"Ayush Adhikari",
+           email:"ayushadhikari080@gmail.com",
+           contact:"7331232121",
+           amount,
+          })
+ 
+          if(verifyResponse.data.success){
+           toast.success("Payment Verified Successfully!")
+          }else{
+           toast.error(" Payment Verification Failed")
+          }
+         } catch (error) {
+          console.error("Verification Error:", error)
+          toast.error("Error Verifying Payment")
+         }
     
   },
     
@@ -65,7 +84,7 @@ const handlePayment = async (amount) =>{
 
     } catch (error) {
       console.log("Payment error",error)
-      alert("Something went wrong during payment.")
+      toast.error("Something went wrong during payment.")
     }
 
     console.log("handlePayment called with amount:", amount);

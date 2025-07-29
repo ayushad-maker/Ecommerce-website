@@ -23,10 +23,10 @@ const Header = () => {
       <div className='flex flex-col items-center'>
         <input
           type="text"
-          className='bg-white text-black px-2 py-1 rounded mb-1'
+          className='bg-white text-black px-2 py-1 rounded mb-1 ml-53 '
           placeholder='Search'
         />
-        <nav className='space-x-4'>
+        <nav className='ml-50 space-x-4'>
           <Link to="/home" className='hover:underline'>Home</Link>
           <Link to="/about" className='hover:underline'>About</Link>
           <Link to="/product" className='hover:underline'>Product</Link>

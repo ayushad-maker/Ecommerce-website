@@ -6,13 +6,14 @@ import {
   FaFacebook,
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thanks ${formData.name}, We Have Received Your Message`);
+    toast.success(`Thanks ${formData.name}, We Have Received Your Message`);
     setFormData({ name: '', email: '', message: '' });
   };
 

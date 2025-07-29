@@ -1,6 +1,5 @@
 import React from 'react'
 import HeroBanner from '../components/HeroBanner'
-import { a, link } from 'framer-motion/client';
 
 
 const Home = () => {
