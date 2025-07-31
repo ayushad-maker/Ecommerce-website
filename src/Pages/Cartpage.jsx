@@ -5,9 +5,11 @@ import { FaPlus, FaMinus, FaTimes } from 'react-icons/fa';
 import axios from "axios";
 import { loadRazorpayScript } from "../utils/loadRazorpay.js";
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Cartpage = () => {
   const { cartItems, removeFromCart, increaseItem, decreaseItem } = useCart();
+  const navigate = useNavigate();
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -38,16 +40,22 @@ const Cartpage = () => {
         return;
       }
 
+      const itemSummary = cartItems.map(
+        (item)=>`${item.name} x ${item.quantity}`
+      ).join(",")
+
       const options = {
         key,
         amount: data.order.amount,
         currency: "INR",
         name: "Adidas Store",
-        description: "Test Transaction",
+        description:itemSummary, 
         image: "https://yourlogo.com/logo.png",
         order_id: data.order.id,
 
         handler: async function (response) {
+          
+
           const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
 
           try {
@@ -61,9 +69,17 @@ const Cartpage = () => {
               amount,
               cartItems,
             });
+             
+            console.log("verifyResponse:", verifyResponse.data);
 
             if (verifyResponse.data.success) {
               toast.success("Payment Verified Successfully!");
+              console.log("Payment being passed to success page:", verifyResponse.data.payment);
+              navigate("/payment-success",{
+               state:{
+               paymentData:verifyResponse.data.payment,
+               }, 
+              });
             } else {
               toast.error("Payment Verification Failed");
             }
@@ -72,6 +88,8 @@ const Cartpage = () => {
             toast.error("Error Verifying Payment");
           }
         },
+       
+ 
 
         prefill: {
           name: "Ayush Adhikari",
@@ -81,6 +99,7 @@ const Cartpage = () => {
 
         notes: {
           address: "Ayush Mart",
+          items:itemSummary,
         },
 
         theme: {

@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from "./components/ProtectedRoute"
 import Profile from "./Pages/Profile"
 import Cartpage from "./Pages/Cartpage"
+import PaymentSucess from "./Pages/PaymentSucess"
 
 
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<Login/>}/>
             <Route path="/register" element={<Register/>} />
             <Route path="/cart" element={<Cartpage/>}  />
+            <Route path="/payment-success" element={<PaymentSucess/>}/>
           </Routes>
         </main>
         <Footer />
