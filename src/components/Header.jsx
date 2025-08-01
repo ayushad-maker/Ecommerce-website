@@ -48,9 +48,10 @@ const Header = () => {
          </Link>
         </div> 
 
-     </div>
-
-
+     
+     
+     <Link to={"/orders"} className='hover:underline font-semibold mt-8 mr-20'>My Orders</Link>
+      </div>
       {/* Right Section: Auth Links + Avatar */}
       <div className='flex items-center space-x-4'>
         {!isAuthenticated && (

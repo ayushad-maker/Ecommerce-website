@@ -69,15 +69,14 @@ const Cartpage = () => {
               amount,
               cartItems,
             });
-             
-            console.log("verifyResponse:", verifyResponse.data);
+
 
             if (verifyResponse.data.success) {
               toast.success("Payment Verified Successfully!");
-              console.log("Payment being passed to success page:", verifyResponse.data.payment);
               navigate("/payment-success",{
                state:{
                paymentData:verifyResponse.data.payment,
+               cartItems,
                }, 
               });
             } else {
@@ -114,7 +113,7 @@ const Cartpage = () => {
       toast.error("Something went wrong during payment.");
     }
 
-    console.log("handlePayment called with amount:", amount);
+
   };
 
   return (

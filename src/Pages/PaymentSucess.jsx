@@ -5,9 +5,7 @@ import { useLocation,Link } from "react-router-dom"
 const PaymentSucess = () =>{
    const location = useLocation();
    const paymentData = location.state?.paymentData;
-
-   console.log("Location state:", location.state);
-   console.log("paymentData:", paymentData);
+   const cartItems = location.state?.cartItems;
 
     const formatINR = (amount) =>
     new Intl.NumberFormat("en-IN", {
@@ -24,7 +22,15 @@ const PaymentSucess = () =>{
      <div className="bg-white shadow-lg rounded-2xl p-6 max-w-xl space-y-2">
     <p><strong>Payment ID:</strong> {paymentData.razorpay_payment_id}</p>
     <p><strong>Order ID:</strong> {paymentData.razorpay_order_id}</p>
-    <p><strong>Amount:</strong> {formatINR(paymentData.amount)}</p>
+    <p><strong>Total Amount:</strong> {formatINR(paymentData.amount)}</p>
+    <div>
+      <strong>Items Purchase:</strong>
+      <ul className="list-disc ml-6 ">
+       {cartItems.map((item,index)=>(
+          <li key={index}>{item.name} x {item.quantity}</li> 
+      ))}
+      </ul>
+    </div>
     <p><strong>Email:</strong> {paymentData.email}</p>
     <p><strong>Status:</strong> {paymentData.status}</p>
     <p><strong>Contact:</strong> {paymentData.contact}</p>

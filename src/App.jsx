@@ -16,7 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import Profile from "./Pages/Profile"
 import Cartpage from "./Pages/Cartpage"
 import PaymentSucess from "./Pages/PaymentSucess"
-
+import OrdersHistoryPage from "./Pages/OrderHistoryPages"
 
 
 function App() {
@@ -37,6 +37,8 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/cart" element={<Cartpage/>}  />
             <Route path="/payment-success" element={<PaymentSucess/>}/>
+            <Route path="/orders" element={<OrdersHistoryPage/>}/>
+
           </Routes>
         </main>
         <Footer />
