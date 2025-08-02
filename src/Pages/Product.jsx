@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
+import InnerImageZoom from "react-inner-image-zoom";
+import 'react-inner-image-zoom/lib/styles.min.css';
+
+
 
 const Products = () => {
   const { addToCart } = useCart();
@@ -51,7 +55,7 @@ const Products = () => {
     <section className="py-12 px-6 bg-gray-400">
       <h2
         id="products"
-        className="italic text-4xl font-bold mb-10 text-center text-emerald-600"
+        className="italic text-4xl font-bold mb-10 text-center text-emerald-600 underline"
       >
         Adidas Products
       </h2>
@@ -59,11 +63,16 @@ const Products = () => {
         {products.map((product) => (
           <div key={product.id} className="animate-glow-border">
             <div className="bg-white shadow-lg rounded-lg p-4 hover:scale-105 transition duration-300">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-56 object-cover rounded-md mb-4"
-              />
+              <InnerImageZoom
+               src={product.image}
+               zoomSrc={product.image}
+               zoomType="hover"
+               zoomScale={1.6}
+               width="100%"
+               height="225px"
+               className="rounded-md mb-4 object-cover"
+               />
+
               <h3 className="italic text-xl font-semibold text-black">
                 {product.name}
               </h3>

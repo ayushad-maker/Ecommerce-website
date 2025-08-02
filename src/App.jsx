@@ -37,7 +37,7 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/cart" element={<Cartpage/>}  />
             <Route path="/payment-success" element={<PaymentSucess/>}/>
-            <Route path="/orders" element={<OrdersHistoryPage/>}/>
+            <Route path="/orders" element={<ProtectedRoute><OrdersHistoryPage/></ProtectedRoute>}/>
 
           </Routes>
         </main>
