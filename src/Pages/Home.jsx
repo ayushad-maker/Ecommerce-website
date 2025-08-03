@@ -1,13 +1,16 @@
 import React from 'react'
 import HeroBanner from '../components/HeroBanner'
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
+  const navigation = useNavigate
   const categories = [
     { 
-     title: "Men", 
-     img: "https://imgs.search.brave.com/LptRchvFir8Hm_l_hkwxmj4HwP2H-ieWrbB8Fse0-kE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zbGlt/YWdlcy5tYWN5c2Fz/c2V0cy5jb20vaXMv/aW1hZ2UvTUNZL3By/b2R1Y3RzLzMvb3B0/aW1pemVkLzMxNDE0/MzQzX2ZweC50aWY_/cWx0PTgwLDAmcmVz/TW9kZT1zaGFycDIm/b3BfdXNtPTEuNzUs/MC4zLDIsMCZmbXQ9/anBlZyZ3aWQ9MzQy/JmhlaT00MTc",
-     link: "https://www.adidas.co.in/men-clothing" ,  
+     title: "Shoes", 
+     img: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/4d5a842421e6403fb2b62216e15952dd_9366/DRUMLIN_Shoes_Black_JK7709_01_00_standard.jpg",
+     link: "/product" ,  
     },
     { 
       title: "Women", 
@@ -36,11 +39,10 @@ const Home = () => {
         
         <div className='grid md:grid-cols-4 gap-6 max-w-6xl mx-auto'>
           {categories.map((category, key) => (
-            <a 
-            href={category.link}
+            <Link
+            to={category.link}
             key={key}
             rel='noopener noreferre'
-            target='_blank'
             className='block'
             >
             <div
@@ -57,7 +59,7 @@ const Home = () => {
                 {category.title}
               </h3>
             </div>
-            </a>
+            </Link>
            ))}
           
         </div>
