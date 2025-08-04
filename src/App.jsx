@@ -17,6 +17,7 @@ import Profile from "./Pages/Profile"
 import Cartpage from "./Pages/Cartpage"
 import PaymentSucess from "./Pages/PaymentSucess"
 import OrdersHistoryPage from "./Pages/OrderHistoryPages"
+import Jersey from "./Pages/Jersey"
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path="/cart" element={<Cartpage/>}  />
             <Route path="/payment-success" element={<PaymentSucess/>}/>
             <Route path="/orders" element={<ProtectedRoute><OrdersHistoryPage/></ProtectedRoute>}/>
+            <Route path="/jersey" element={<ProtectedRoute><Jersey/></ProtectedRoute>}/>
 
           </Routes>
         </main>

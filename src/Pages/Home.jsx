@@ -13,17 +13,18 @@ const Home = () => {
      link: "/product" ,  
     },
     { 
-      title: "Women", 
-      link:"https://www.adidas.co.in/women-clothing",
-      img: "https://imgs.search.brave.com/HH4kJDJx51hYTVqkoJVLRezMoIY1oIumGPecgEUvb8I/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZW5hMS5sYWNvc3Rl/LmNvbS9kdy9pbWFn/ZS92Mi9BQVVQX1BS/RC9vbi9kZW1hbmR3/YXJlLnN0YXRpYy8t/L0xpYnJhcnktU2l0/ZXMtTGFjb3N0ZUNv/bnRlbnQvZGVmYXVs/dC9kdzA4NDI5ZmYz/L1NTMjUvUExQLUhl/YWRlcnMvd29tZW5f/c2FsZS5qcGc_aW13/aWR0aD0xNDAmaW1w/b2xpY3k9Y3VzdG9t/JmltZGVuc2l0eT0x", },
+      title: "Jersey", 
+      link:"/jersey",
+      img: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/aba2d03140364ed1bd6080ced9769796_9366/Arsenal_24-25_Third_Jersey_Blue_IZ0114_HM4.jpg",
+    },
     { 
-      title: "Kids",
-      link: "https://www.adidas.co.in/kids-4_8_years",
-      img: "https://imgs.search.brave.com/by-KOpvvmTamhk6-vaBdEfmdDlIyClCbhIMRCnajbgA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/a2lkc2NvbXBhbnku/aXQvY2RuL3Nob3Av/ZmlsZXMvYmFtYmlu/b18xMDBfNzdiZWQ2/NTQtMzhkNS00NmRk/LWI4OWMtNjE2YTVi/OTE4YmM4LmpwZz92/PTE2ODI5NTU4NTkm/d2lkdGg9NjQw" },
+      title: "Hoodies",
+      link: "/hoodies",
+      img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9b9218bd4fb54f11ac074ad78a5f4779_9366/adidas_By_Stella_McCartney_Peplum_Hoodie_Beige_JX9108_HM1.jpg" },
     { 
       title: "Accessories",
-      link: "https://www.adidas.co.in/originals-accessories",
-      img: "https://imgs.search.brave.com/FVpdZI8iHdqnX8HhNmaIb7gMK893eAQ6TKmcT4Ol6cc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjM4/Mzg1OTM4L3Bob3Rv/L21lbnMtYWNjZXNz/b3JpZXMtb3JnYW5p/emVkLW9uLXRhYmxl/LWluLWtub2xsaW5n/LWFycmFuZ2VtZW50/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz0xanM3U1B3RGx0/Zi1rZXlTZFJjMThK/QlRoQnJ2dm5LenJB/QnBueHNyTDlNPQ", },
+      link: "/accessories",
+      img: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/be6b3b22322d41648196ce692a4d5e81_9366/Power_Backpack_Black_IP9774_27_model.jpg", },
   ];
 
   return (
