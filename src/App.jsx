@@ -18,7 +18,9 @@ import Cartpage from "./Pages/Cartpage"
 import PaymentSucess from "./Pages/PaymentSucess"
 import OrdersHistoryPage from "./Pages/OrderHistoryPages"
 import Jersey from "./Pages/Jersey"
-
+import Hoodies from "./Pages/Hoodies"
+import Accessories from "./Pages/Accessories"
+import Shoes from "./Pages/Shoes"
 
 function App() {
 
@@ -40,7 +42,9 @@ function App() {
             <Route path="/payment-success" element={<PaymentSucess/>}/>
             <Route path="/orders" element={<ProtectedRoute><OrdersHistoryPage/></ProtectedRoute>}/>
             <Route path="/jersey" element={<ProtectedRoute><Jersey/></ProtectedRoute>}/>
-
+            <Route path="/hoodies" element={<ProtectedRoute><Hoodies/></ProtectedRoute>}/>
+            <Route path="/accessories" element={<ProtectedRoute><Accessories/></ProtectedRoute>}/>
+            <Route path="/shoes" element={<ProtectedRoute><Shoes/></ProtectedRoute>}/>
           </Routes>
         </main>
         <Footer />

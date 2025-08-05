@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {useCart} from  '../context/CartContext'
 import { FaShoppingCart } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Header = () => {
   const { isAuthenticated, user } = useAuth();
   const {cartItems} = useCart();
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
 
  
@@ -20,16 +21,45 @@ const Header = () => {
       </div>
 
       {/* Center Section: Search + Navigation */}
-      <div className='flex flex-col items-center'>
+      <div className='flex items-center space-x-6'>
         <input
           type="text"
           className='bg-white text-black px-2 py-1 rounded mb-1 ml-53 '
           placeholder='Search'
         />
-        <nav className='ml-50 space-x-4'>
+        <nav className=' flex items-center space-x-5'>
           <Link to="/home" className='hover:underline'>Home</Link>
           <Link to="/about" className='hover:underline'>About</Link>
-          <Link to="/product" className='hover:underline'>Product</Link>
+            <div className="relative">
+    <button
+      onClick={() => setDropdownOpen(!dropdownOpen)}
+      className="hover:underline focus:outline-none flex items-center gap-1"
+    >
+      Product
+      <svg
+        className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    {/* Dropdown Content */}
+    <div
+       className={`absolute top-ful mt-2 text-black bg-white rounded shadow-lg w-44 z-50 transition-all duration-300 origin-top transform ${
+        dropdownOpen? "scale-100 opacity-100": "scale-95 opacity-0 pointer-events-none"
+      }`}
+    >
+      <Link to={"/shoes"} className='block px-4 py-2 hover:bg-gray-200' onClick={()=>setDropdownOpen(false)}>Shoes</Link>
+      <Link to={"/jersey"} className='block px-4 py-2 hover:bg-gray-200' onClick={()=>setDropdownOpen(false)}>Jersey</Link>
+      <Link to={"/hoodies"} className='block px-4 py-2 hover:bg-gray-200' onClick={()=>setDropdownOpen(false)}>Hoodies</Link>
+      <Link to={"/accessories"} className='block px-4 py-2 hover:bg-gray-200' onClick={()=>setDropdownOpen(false)} >Accessories</Link>
+      </div>
+     </div>
+
+          
           <Link to="/contact" className='hover:underline'>Contact</Link>
         </nav>
       </div>

@@ -10,7 +10,7 @@ const Home = () => {
     { 
      title: "Shoes", 
      img: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/4d5a842421e6403fb2b62216e15952dd_9366/DRUMLIN_Shoes_Black_JK7709_01_00_standard.jpg",
-     link: "/product" ,  
+     link: "/shoes" ,  
     },
     { 
       title: "Jersey", 
@@ -80,7 +80,7 @@ const Home = () => {
   ></iframe>
 
   <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-10">
-    {/* Optional: Overlay content */}
+  
   </div>
 </div>
 

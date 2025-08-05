@@ -6,7 +6,7 @@ import 'react-inner-image-zoom/lib/styles.min.css';
 
 
 
-const Products = () => {
+const Shoes = () => {
   const { addToCart } = useCart();
 
   const handleAdd = (product) => {
@@ -80,7 +80,7 @@ const Products = () => {
         id="products"
         className="italic text-4xl font-bold mb-10 text-center text-emerald-600 underline"
       >
-        Adidas Products
+        Adidas Shoes
       </h2>
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {products.map((product) => (
@@ -132,4 +132,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Shoes;
