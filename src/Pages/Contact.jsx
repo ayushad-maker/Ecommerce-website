@@ -7,14 +7,29 @@ import {
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import axios from "axios"
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    toast.success(`Thanks ${formData.name}, We Have Received Your Message`);
-    setFormData({ name: '', email: '', message: '' });
+    
+    try {
+       
+      const res = await axios.post("http://localhost:8000/api/v1/contacts/",formData);
+      if(res.data.success){
+        toast.success(`Thanks ${formData.name} your message is successfully submitted.`);
+        setFormData({name:"",email:"",message:""});
+      }else{
+        toast.error("Something went wrong. Please try again.")
+      }
+      
+    }catch (error) {
+      toast.error('Failed to send message. Server error.');
+      console.error(error);
+    }
+    
   };
 
   const handleChange = (e) => {
@@ -83,7 +98,7 @@ const Contact = () => {
         transition={{delay:0.20}} 
         className="text-center mt-8">
           <h2 className="font-semibold text-amber-900 mb-4">Follow Adidas on Social Media</h2>
-          <div className="flex justify-center gap-6 text-2xl text-gray-800">
+          <div className="flex justify-center  space-x-8 text-2xl text-gray-800">
             <a href="https://www.instagram.com/adidas/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600">
               <FaInstagram />
             </a>
