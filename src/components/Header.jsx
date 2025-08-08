@@ -54,7 +54,7 @@ const Header = () => {
         <img
           src="https://imgs.search.brave.com/U_2AnlSXaBNo1QM9_vxaIbcrB70qUxM8AyRU2FrzcIk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTAv/OTk0LzI4NC9zbWFs/bC9hZGlkYXMtc3lt/Ym9sLWxvZ28td2hp/dGUtd2l0aC1uYW1l/LWNsb3RoZXMtZGVz/aWduLWljb24tYWJz/dHJhY3QtZm9vdGJh/bGwtaWxsdXN0cmF0/aW9uLXdpdGgtYmxh/Y2stYmFja2dyb3Vu/ZC1mcmVlLXZlY3Rv/ci5qcGc"
           alt="Adidas"
-          className="w-20 h-16 mr-2"
+          className="w-20 h-16 mr-2 hover:text-2xl"
         />
       </div>
 
@@ -86,12 +86,12 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className="flex items-center space-x-5 ml-4">
-        <Link to="/home" className="hover:underline">Home</Link>
-        <Link to="/about" className="hover:underline">About</Link>
+        <Link to="/home" className="hover:underline hover:text-lg">Home</Link>
+        <Link to="/about" className="hover:underline hover:text-lg">About</Link>
         <div className="relative">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="hover:underline focus:outline-none flex items-center gap-1"
+            className="hover:underline focus:outline-none flex items-center gap-1 hover:text-lg"
           >
             Product
             <svg
@@ -116,7 +116,7 @@ const Header = () => {
             <Link to="/accessories" className="block px-4 py-2 hover:bg-gray-200" onClick={() => setDropdownOpen(false)}>Accessories</Link>
           </div>
         </div>
-        <Link to="/contact" className="hover:underline">Contact</Link>
+        <Link to="/contact" className="hover:underline hover:text-xl">Contact</Link>
       </nav>
 
       {/* Cart & Orders */}

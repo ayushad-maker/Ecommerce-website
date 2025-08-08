@@ -1,39 +1,13 @@
+
 @import "tailwindcss";
 
-html{
-   scroll-behavior: smooth;
-}
-
-@keyframes glowBorder{
-0%{
-  background-position: 0% 50%;
-}
-
-50%{
-background-position: 100% 50%;
-
+html {
+  scroll-behavior: smooth;
 }
 
 
-100%{
-background-position: 0% 50%;
-}
-}
-
-.animate-glow-border{
-background:linear-gradient(300deg,  #00f0ff, #ff00f0, #00ff94, #ffd500) ;
-background-size: 600% 200%;
-animation: glowBorder 4s linear infinite;
-border-radius: 1rem;
-padding: 5px;
-
-}
-
-.animate-glow-border--circle{
-    border-radius: 9999px;
-}
-
-@keyframes gradientMove {
+/* Glow Border (optional for buttons or elements) */
+@keyframes glowBorder {
   0% {
     background-position: 0% 50%;
   }
@@ -45,22 +19,16 @@ padding: 5px;
   }
 }
 
-.animate-gradient {
-  background-size: 400% 400%;
-  animation: gradientMove 10s ease infinite;
+.animate-glow-border {
+  background: linear-gradient(300deg, #00f0ff, #ff00f0, #00ff94, #ffd500);
+  background-size: 600% 200%;
+  animation: glowBorder 4s linear infinite;
+  border-radius: 1rem;
+  padding: 5px;
 }
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.animate-glow-border--circle {
+  border-radius: 9999px;
 }
 
-.animate-float-slow {
-  animation: floatSlow 6s ease-in-out infinite;
-  opacity: 0.3;
-}
 
