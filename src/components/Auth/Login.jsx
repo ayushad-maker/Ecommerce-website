@@ -61,7 +61,7 @@ const Login = () => {
               autoComplete="on"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 invli"
               placeholder="Your email here"
               required
             />
@@ -72,11 +72,13 @@ const Login = () => {
             <input
               type="password"
               value={password}
+              minLength={6}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your password"
               required
             />
+            <p className="mt-2">password must of atleast 6 characters</p>
           </div>
 
           <button
