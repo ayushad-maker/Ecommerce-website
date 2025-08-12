@@ -84,8 +84,9 @@ const Products = () => {
       </h2>
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {products.map((product) => (
-          <div key={product.id} className="animate-glow-border">
-            <div className="bg-white shadow-lg rounded-lg p-4 hover:scale-105 transition duration-300">
+          <div key={product.id} >
+            <div className="animate-glow-border">
+            <div className="bg-white shadow-lg rounded-lg p-4 hover:scale-105 transition duration-300 ">
            
               <InnerImageZoom
                src={product.image}
@@ -124,6 +125,7 @@ const Products = () => {
               >
                 Add to Cart
               </motion.button>
+            </div>
             </div>
           </div>
         ))}

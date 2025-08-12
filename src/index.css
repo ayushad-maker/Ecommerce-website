@@ -6,54 +6,125 @@ html {
 
 
 /* Glow Border (optional for buttons or elements) */
-@keyframes glowBorder {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
 }
 
-.animate-glow-border {
-  background: linear-gradient(300deg, #00f0ff, #ff00f0, #00ff94, #ffd500);
-  background-size: 600% 200%;
-  animation: glowBorder 4s linear infinite;
-  border-radius: 1rem;
-  padding: 5px;
+.animate-glow-border{
+  position: relative;
+  padding: 3px;
+  border-radius: 12px;
+  z-index: 0;
+
+}
+
+.animate-glow-border::after,
+.animate-glow-border::before{
+    background-color: aqua;
+    content: "";
+    background-color: red;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    --angle:0deg;
+    background-image: conic-gradient(
+      from var(--angle),white,gold
+    );
+    animation: autoRotate 20s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    padding: 5px;
+    box-sizing: unset;
+
+}
+
+.animate-glow-border::after{
+  filter: blur(6px);
+}
+
+@keyframes autoRotate{
+   to{
+     --angle:360deg
+   }
 }
 
 .animate-glow-border--circle {
   border-radius: 9999px;
 }
 
-input:invalid:not(:placeholder-shown) {
+input.validate-field:invalid:not(:placeholder-shown) {
   border-color: red;
   background-image: url(red.jpg);
 }
 
-input:valid:not(:placeholder-shown){
+input.validate-field:valid:not(:placeholder-shown){
   border-color: green;
   background-image: url(green.jpg);
 }
 
-input:invalid:not(:placeholder-shown),
-input:valid:not(:placeholder-shown){
+input.validate-field:invalid:not(:placeholder-shown),
+input.validate-field:valid:not(:placeholder-shown){
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: calc(100% - 2%);
 }
 
-input:invalid + p:not(:placeholder-shown){
+input.validate-field:invalid + p:not(:placeholder-shown){
     color: red;
 }
 
-input:invalid ~ button[type="submit"]{
+.email-form:has(input.validate-field:invalid) button[type="submit"]{
   opacity: 1.6;
   pointer-events: none;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: true;
+}
+
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 2px; /* thickness of animated border */
+  border-radius: 6px; /* match input corners */
+}
+
+.search-wrapper::before,
+.search-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  --angle: 0deg;
+  background-image: conic-gradient(from var(--angle), white, gold);
+  animation: autoRotate 2s linear infinite;
+  z-index: -1;
+}
+
+.search-wrapper::after {
+  filter: blur(7px); /* glow effect */
+}
+
+.search-input {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 4px; /* slightly smaller than wrapper */
+  padding: 6px 10px;
+  color: black;
+}
+
+@keyframes autoRotate {
+  to {
+    --angle: 360deg;
+  }
 }

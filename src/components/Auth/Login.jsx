@@ -54,6 +54,7 @@ const Login = () => {
         )}
    
         <form onSubmit={handleLogin} className="space-y-4">
+          <div className="email-form">
           <div>
             <label className="block text-gray-700 font-medium mb-2">Email</label>
             <input
@@ -61,7 +62,7 @@ const Login = () => {
               autoComplete="on"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 invli"
+              className=" validate-field  w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 invli"
               placeholder="Your email here"
               required
             />
@@ -71,10 +72,11 @@ const Login = () => {
             <label className="block text-gray-700 font-medium mb-2">Password</label>
             <input
               type="password"
+              
               value={password}
               minLength={6}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className=" validate-field w-full border border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your password"
               required
             />
@@ -88,7 +90,7 @@ const Login = () => {
           >
             {loading ? "Logging in..." : "Login"}
           </button>
-
+        </div>
           <p className="text-sm text-center font-semibold mt-4">
             Don't have an account?{" "}
             <Link to="/register" className="text-blue-600 hover:underline">

@@ -59,15 +59,16 @@ const Header = () => {
       </div>
 
       {/* Search */}
-      <div className="relative">
+      <div className="relative ">
+        <div className="search-wrapper">
         <input
           type="text"
-          className="bg-white text-black px-3 py-1 rounded"
+          className="bg-white text-black px-3 py-1 rounded search-input"
           placeholder="Search products..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-
+        </div>
         {/* Auto-suggestions */}
         {suggestions.length > 0 && (
           <div className="absolute top-full left-0 mt-1 w-64 bg-white text-black shadow-lg rounded z-50 max-h-60 overflow-auto">
