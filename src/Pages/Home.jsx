@@ -21,9 +21,9 @@ const Home = () => {
       img: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9b9218bd4fb54f11ac074ad78a5f4779_9366/adidas_By_Stella_McCartney_Peplum_Hoodie_Beige_JX9108_HM1.jpg',
     },
     {
-      title: 'Accessories',
-      link: '/accessories',
-      img: 'https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/be6b3b22322d41648196ce692a4d5e81_9366/Power_Backpack_Black_IP9774_27_model.jpg',
+      title: 'Limited edition',
+      link: '/limited',
+      img: 'https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/bf78561359b44d989b02b2f81cdb47d0_9366/Pro_Model_ADV_x_Always_Shoes_Black_JP7637_04_standard.jpg',
     },
   ]
 
@@ -32,20 +32,24 @@ const Home = () => {
       <HeroBanner />
 
       {/* Category Section */}
-      <section className="py-16 px-6 bg-white">
-        <h2 className="italic text-3xl font-bold text-emerald-500 text-center mb-12 underline">
+      <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-6 md:px-12 bg-white">
+        <h2 className="italic text-lg sm:text-2xl md:text-3xl font-bold text-black text-center mb-8 sm:mb-12 underline autoShow">
           Shop Category
         </h2>
 
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-          {categories.map((category,key) => (
-            <Link to={category.link} key={key} className="group block rounded-xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto autoShow">
+          {categories.map((category, key) => (
+            <Link
+              to={category.link}
+              key={key}
+              className="group block rounded-xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
+            >
               <div
-                className="relative h-64 bg-cover bg-center"
+                className="relative h-40 sm:h-56 md:h-64 lg:h-72 bg-cover bg-center"
                 style={{ backgroundImage: `url(${category.img})` }}
               >
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40   transition duration-300" />
-                <h3 className="absolute bottom-4 left-4 text-white text-2xl font-semibold z-10 drop-shadow-lg hover:text-3xl">
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition duration-300" />
+                <h3 className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 text-white text-lg sm:text-xl md:text-2xl font-semibold z-10 drop-shadow-lg group-hover:text-[120%]">
                   {category.title}
                 </h3>
               </div>
@@ -55,8 +59,8 @@ const Home = () => {
       </section>
 
       {/* Video Section */}
-      <section className="relative py-10 bg-black">
-        <div className="relative h-[80vh] w-full overflow-hidden">
+      <section className="relative py-8 sm:py-10 bg-black">
+        <div className="relative h-[35vh] sm:h-[50vh] md:h-[80vh] w-full overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/oD4PVOIzTQg?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1&playlist=oD4PVOIzTQg"
             title="Adidas Commercial"
@@ -65,30 +69,29 @@ const Home = () => {
             allowFullScreen
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
           ></iframe>
-
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-10">
-            {/* Optional: Add a CTA like "Shop Now" here */}
+            {/* CTA goes here */}
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gray-100 py-10">
-        <div className="flex flex-col md:flex-row justify-around items-center text-center gap-8 max-w-6xl mx-auto px-4">
+      <section className="bg-gray-100 py-8 sm:py-10">
+        <div className="flex flex-col md:flex-row justify-around items-center text-center gap-6 sm:gap-8 max-w-6xl mx-auto px-4 autoShow">
           <div>
-            <FaSmile className="text-4xl text-emerald-500 mx-auto mb-2" />
-            <h2 className="text-3xl font-bold text-emerald-600">10M+</h2>
-            <p className="text-gray-700">Happy Customers</p>
+            <FaSmile className="text-3xl sm:text-4xl lg:text-5xl text-emerald-500 mx-auto mb-2" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">10M+</h2>
+            <p className="text-gray-700 text-sm sm:text-base">Happy Customers</p>
           </div>
           <div>
-            <FaGlobe className="text-4xl text-emerald-500 mx-auto mb-2" />
-            <h2 className="text-3xl font-bold text-emerald-600">80+</h2>
-            <p className="text-gray-700">Countries Served</p>
+            <FaGlobe className="text-3xl sm:text-4xl lg:text-5xl text-emerald-500 mx-auto mb-2" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">80+</h2>
+            <p className="text-gray-700 text-sm sm:text-base">Countries Served</p>
           </div>
           <div>
-            <FaStar className="text-4xl text-emerald-500 mx-auto mb-2" />
-            <h2 className="text-3xl font-bold text-emerald-600">500+</h2>
-            <p className="text-gray-700">Exclusive Products</p>
+            <FaStar className="text-3xl sm:text-4xl lg:text-5xl text-emerald-500 mx-auto mb-2" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-600">500+</h2>
+            <p className="text-gray-700 text-sm sm:text-base">Exclusive Products</p>
           </div>
         </div>
       </section>

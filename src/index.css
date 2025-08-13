@@ -32,7 +32,7 @@ html {
     border-radius: inherit;
     --angle:0deg;
     background-image: conic-gradient(
-      from var(--angle),white,gold
+      from var(--angle),#0b0b0b,#00a3ff
     );
     animation: autoRotate 20s linear infinite;
     top: 50%;
@@ -52,6 +52,51 @@ html {
    to{
      --angle:360deg
    }
+}
+
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+.animate-glow-border1{
+  position: relative;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.animate-glow-border1::after,
+.animate-glow-border1::before{
+    content: "";
+    position: absolute;
+    background-color: red; 
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    --angle:0deg;
+    background-image: conic-gradient(
+    from var(--angle), white,gold
+    );
+    animation: autoRotate 10s linear infinite;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    padding: 8px;
+    box-sizing: unset;
+    transform: translate(-50%,-50%);
+
+}  
+
+
+.animate-glow-border1::after{
+  filter: blur(10px);
+}
+@keyframes autoRotate{
+    to{
+      --angle:360deg
+    }
 }
 
 .animate-glow-border--circle {
@@ -89,42 +134,20 @@ input.validate-field:invalid + p:not(:placeholder-shown){
   inherits: true;
 }
 
-.search-wrapper {
-  position: relative;
-  display: inline-block;
-  padding: 2px; /* thickness of animated border */
-  border-radius: 6px; /* match input corners */
+.autoShow{
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%); 
 }
 
-.search-wrapper::before,
-.search-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  --angle: 0deg;
-  background-image: conic-gradient(from var(--angle), white, gold);
-  animation: autoRotate 2s linear infinite;
-  z-index: -1;
+@keyframes autoShowAnimation{
+    from{
+      opacity:0;
+      transform: translateY(200px) scale(0.3);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 }
 
-.search-wrapper::after {
-  filter: blur(7px); /* glow effect */
-}
 
-.search-input {
-  position: relative;
-  z-index: 1;
-  background-color: white;
-  border: none;
-  outline: none;
-  border-radius: 4px; /* slightly smaller than wrapper */
-  padding: 6px 10px;
-  color: black;
-}
-
-@keyframes autoRotate {
-  to {
-    --angle: 360deg;
-  }
-}

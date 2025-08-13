@@ -78,7 +78,7 @@ const Hoodies = () =>{
 return (
    
     <section className="bg-gray-400 py-12 px-3">
-        <h2 className="text-3xl font-bold text-emerald-600 underline italic flex justify-center items-center ">
+        <h2 className="text-4xl font-bold text-amber-900 underline italic flex justify-center items-center mb-10">
             Adidas Hoodies
         </h2>
       <div className="grid grid-cols-3 max-w-6xl gap-8 mx-auto mt-8"> 

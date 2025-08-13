@@ -21,6 +21,7 @@ import Jersey from "./Pages/Jersey"
 import Hoodies from "./Pages/Hoodies"
 import Accessories from "./Pages/Accessories"
 import Shoes from "./Pages/Shoes"
+import Limited from "./Pages/Limited"
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="/hoodies" element={<ProtectedRoute><Hoodies/></ProtectedRoute>}/>
             <Route path="/accessories" element={<ProtectedRoute><Accessories/></ProtectedRoute>}/>
             <Route path="/shoes" element={<ProtectedRoute><Shoes/></ProtectedRoute>}/>
+            <Route path="/limited" element={<ProtectedRoute><Limited/></ProtectedRoute>}/>
           </Routes>
         </main>
         <Footer />

@@ -76,7 +76,7 @@ const Products = [
 return(
       <section className="py-12 px-6 bg-gray-400">
        <h2
-       className="font-bold text-4xl text-emerald-600 underline flex items-center justify-center "
+       className="font-bold text-4xl text-amber-900 underline text-center italic mb-10"
        >
        Adidas Jersey 
        </h2>

@@ -30,7 +30,7 @@ const Shoes = () => {
   const products = [
     {
       id: 1,
-      name: "Ultraboost 5 Shoes - Digital Camo",
+      name: "Ultraboost 5 Shoes",
       price: 17999,
       image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eb93e01133f24a74a1352acb63438cc2_9366/Ultraboost_5_Shoes_-_Digital_Camo_Black_JI1521_01_00_standard.jpg",
       link: "https://www.adidas.co.in/ultraboost-5-shoes---digital-camo/JI1521.html",
@@ -78,7 +78,7 @@ const Shoes = () => {
     <section className="py-12 px-6 bg-gray-400">
       <h2
         id="products"
-        className="italic text-4xl font-bold mb-10 text-center text-emerald-600 underline"
+        className="italic text-4xl font-bold mb-10 text-center text-amber-900 underline"
       >
         Adidas Shoes
       </h2>
